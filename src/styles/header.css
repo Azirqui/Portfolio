@@ -1,0 +1,10 @@
+.navStart span:nth-child(2){
+    color: var(--red-dark);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .navStart span:nth-child(1){
+    font-weight: 700;
+    font-size: 20px;
+  }
+  

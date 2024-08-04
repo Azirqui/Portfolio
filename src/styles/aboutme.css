@@ -1,0 +1,15 @@
+.about-me{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 60px; 
+  }
+  .about-text-div > p > :first-child{
+    color: #dc3545;
+    font-weight: 700;
+  }
+  .about-text-div > p > :nth-child(2){
+    color: #60a5fa;
+    font-weight: 700;
+  }

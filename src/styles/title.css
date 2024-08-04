@@ -1,0 +1,49 @@
+.title {
+    text-align: center;
+    padding-top: 3rem;
+    position: relative;
+    margin-top: 1rem;
+  }
+  .title::before {
+    content: attr(data-title);
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    font-size: 6vw;
+    color: transparent;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+    opacity: 0.1;
+  }
+  @media screen and (max-width: 768px) {
+    .title {
+      padding-top: 2rem;
+      margin-top: 0.5rem;
+    }
+  
+    .title::before {
+      font-size: 8vw; /* Increase font size for better readability */
+      top: 10px; /* Adjust top position if needed */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .title {
+      padding-top: 1.5rem;
+      margin-top: 0.5rem;
+    }
+  
+    .title::before {
+      font-size: 10vw; /* Further increase font size */
+      letter-spacing: 0.1rem; /* Adjust letter-spacing for clarity */
+      opacity: 0.15; /* Increase opacity for better visibility */
+      top: 5px; /* Adjust top position if needed */
+    }
+  }
