@@ -5,6 +5,7 @@ import About from "./pages/About"
 import Skills from "./pages/Skills"
 import Contact from "./pages/Contact"
 import Projects from "./pages/Projects"
+import Animated from "./components/Animated"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header/>
+        <Animated/>
         <Home/>
         <About/>
         <Skills/>
