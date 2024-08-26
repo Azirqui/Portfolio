@@ -1,9 +1,11 @@
 import { MyButton } from "../components/Button";
-import assetImage from '../assets/Asset 2.svg';
 import { NavHashLink as Link } from 'react-router-hash-link';
 import { FaLinkedin,FaFacebook,FaGithub } from "react-icons/fa";
 import NomanResume from '../pdfs/Noman Resume.pdf';
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import animationData from "../../public/Animation - 1700167698291.json"
 import '../styles/home.css';
 const Home = () => {
   const homeTitle = useTypewriter({
@@ -30,7 +32,14 @@ const Home = () => {
                 </div>
                 </div>
           <div className="image-container">
-              <img className="home-image" src={assetImage} alt="" style={{ width: 350, height: 350, borderRadius: 100 }}/>
+          <motion.div
+              initial={{ x: "130%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "130%", opacity: 0 }}
+              className="mt-5"
+            >
+              <Lottie animationData={animationData}/>
+            </motion.div>
           </div>
           
         </div>

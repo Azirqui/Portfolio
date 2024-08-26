@@ -73,4 +73,6 @@
     grid-template-columns: auto 50px;
   
   }
-  
+  .image-container{
+    max-width: 550px;
+  }
