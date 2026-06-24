@@ -17,8 +17,8 @@ export default function Experience2() {
 									<span className="text-linear-4 d-flex align-items-center"> Expericence </span>
 								</div>
 								<h3>
-									+12
-									<span className="text-300">years of </span>
+									+1
+									<span className="text-300"> years of </span>
 									passion
 									<span className="text-300">
 										for <br />
@@ -30,23 +30,23 @@ export default function Experience2() {
 										<div className="d-flex flex-column gap-2">
 											<Link href="#" className="technology border border-1 rounded-3 p-3">
 												<div className="d-flex align-items-center gap-2">
-													<img src="assets/imgs/home-page-2/experience/google.svg" alt="zelio" />
+													{/* <img src="assets/imgs/home-page-2/experience/google.svg" alt="zelio" /> */}
 													<div className="d-flex flex-column ms-2">
-														<h5 className="mb-1">Google</h5>
-														<span className="text-300">2018 - Present</span>
+														<h5 className="mb-1">10Pearls</h5>
+														<span className="text-300">Dec 2025 - Feb 2026</span>
 													</div>
 												</div>
 											</Link>
 											<Link href="#" className="technology border border-1 rounded-3 p-3">
 												<div className="d-flex align-items-center gap-2">
-													<img src="assets/imgs/home-page-2/experience/twitter.svg" alt="zelio" />
+													{/* <img src="assets/imgs/home-page-2/experience/mindstormlogo.svg" alt="noman" /> */}
 													<div className="d-flex flex-column ms-2">
-														<h5 className="mb-1">Twitter (X)</h5>
-														<span className="text-300">2012 - 2015</span>
+														<h5 className="mb-1">Mindstorm Studios</h5>
+														<span className="text-300">Jun 2024 - Aug 2024</span>
 													</div>
 												</div>
 											</Link>
-											<Link href="#" className="technology border border-1 rounded-3 p-3">
+											{/* <Link href="#" className="technology border border-1 rounded-3 p-3">
 												<div className="d-flex align-items-center gap-2">
 													<img src="assets/imgs/home-page-2/experience/amazon.svg" alt="zelio" />
 													<div className="d-flex flex-column ms-2">
@@ -63,11 +63,11 @@ export default function Experience2() {
 														<span className="text-300">2010 - 2012</span>
 													</div>
 												</div>
-											</Link>
+											</Link> */}
 										</div>
 									</div>
 									<div className="col-lg-8 ps-lg-5 mt-5 mt-lg-0">
-										<h6 className="text-linear-4">Senior Software Engineer</h6>
+										<h6 className="text-linear-4">Associate Software Engineer</h6>
 										<ul className="mt-4">
 											<li className="text-dark mb-3">Led development of scalable web applications, <span className="text-secondary-2">improving performance</span> and user experience for millions of users.</li>
 											<li className="text-dark mb-3">Implemented machine learning algorithms to enhance search functionality.</li>
