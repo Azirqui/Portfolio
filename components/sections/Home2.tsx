@@ -1,6 +1,9 @@
-
+'use client'
 import Link from 'next/link'
 import Marquee from 'react-fast-marquee'
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import animationData from "@/public/assets/imgs/home-page-2/template/Animation.json";
 
 export default function Home2() {
 	return (
@@ -13,7 +16,15 @@ export default function Home2() {
 							<div className="row align-items-end py-60">
 								<div className="col-lg-5 ps-lg-5 text-lg-start text-center">
 									<div className="position-relative mb-lg-0 mb-5">
-										<img src="assets/imgs/home-page-2/hero-1/people.png" alt="noman" />
+										<motion.div
+              initial={{ x: "130%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "130%", opacity: 0 }}
+              className="mt-5"
+            >
+              <Lottie animationData={animationData}/>
+            </motion.div>
+										{/* <img src="assets/imgs/home-page-2/template/Animation.json" alt="noman" /> */}
 										<div className="position-absolute end-0 top-100 translate-middle-y icon-decorate">
 											<img src="assets/imgs/home-page-2/hero-1/icon.svg" alt="zelio" />
 										</div>
