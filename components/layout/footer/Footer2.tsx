@@ -8,19 +8,19 @@ export default function Footer2() {
 						<div className="text-center">
 							<a className="d-flex main-logo align-items-center justify-content-center mb-3">
 								<img src="assets/imgs/home-page-2/template/favicon.svg" alt="zelio" />
-								<span className="fs-4 ms-2">Noman.dev</span>
+								<span className="fs-4 ms-2">Noman Ahmad</span>
 							</a>
 							<div className="d-flex justify-content-center gap-3">
-								<a href="http://facebook.com">
+								{/* <a href="http://facebook.com">
 									<i className="ri-facebook-circle-fill fs-18" />
 								</a>
 								<a href="http://twitter.com">
 									<i className="ri-twitter-x-fill fs-18" />
-								</a>
-								<a href="www.linkedin.com/in/chaudhary-noman-ahmad">
+								</a> */}
+								<a href="https://www.linkedin.com/in/chaudhary-noman-ahmad">
 									<i className="ri-linkedin-fill fs-18" />
 								</a>
-								<a href="http://github.com">
+								<a href="https://github.com/Azirqui">
 									<i className="ri-github-fill fs-18" />
 								</a>
 							</div>
@@ -29,7 +29,7 @@ export default function Footer2() {
 								<a href="#resume" className="fs-6"> Resume </a>
 								<a href="#services" className="fs-6"> Services </a>
 								<a href="#portfolio" className="fs-6"> Portfolio </a>
-								<a href="#blog" className="fs-6"> Blog </a>
+								{/* <a href="#blog" className="fs-6"> Blog </a> */}
 								<a href="#contact" className="fs-6"> Contact </a>
 							</div>
 						</div>
