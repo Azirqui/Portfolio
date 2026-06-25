@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -10,31 +12,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
     }
 
-    // Create a transporter using SMTP
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 465,
-      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    // Email options
-    const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`, // Send from the authenticated user to avoid spam filters
+    const { data, error } = await resend.emails.send({
+      // Resend requires the "from" address to be a verified domain, 
+      // OR you can use their testing address if sending to yourself.
+      from: 'Portfolio Contact <onboarding@resend.dev>', 
       replyTo: email,
-      to: process.env.EMAIL_TO || process.env.SMTP_USER, // Receiver email
+      to: process.env.EMAIL_TO || 'info@chnomanahmad.me', // Receiver email
       subject: `New Contact Form Submission: ${subject || 'No Subject'}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'N/A'}
-
-Message:
-${message}
-      `,
       html: `
         <h3>New Contact Form Submission</h3>
         <p><strong>Name:</strong> ${name}</p>
@@ -44,12 +28,14 @@ ${message}
         <h4>Message:</h4>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
-    };
+    });
 
-    // Send the email
-    await transporter.sendMail(mailOptions);
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json({ message: 'Failed to send message', error }, { status: 400 });
+    }
 
-    return NextResponse.json({ message: 'Message sent successfully' }, { status: 200 });
+    return NextResponse.json({ message: 'Message sent successfully', data }, { status: 200 });
   } catch (error: any) {
     console.error('Error sending email:', error);
     return NextResponse.json(
