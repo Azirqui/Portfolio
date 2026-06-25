@@ -9,12 +9,14 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@types/nodemailer": "^8.0.1",
         "framer-motion": "^12.41.0",
         "gsap": "^3.12.5",
         "isotope-layout": "^3.0.6",
         "lottie": "^0.0.1",
         "lottie-react": "^2.4.1",
         "next": "16.1.1",
+        "nodemailer": "^9.0.1",
         "react": "^19.2.0",
         "react-countup": "^6.5.3",
         "react-dom": "^19.2.0",

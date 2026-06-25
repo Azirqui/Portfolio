@@ -1,6 +1,42 @@
-
+"use client";
+import { useState } from "react";
 
 export default function Contact2() {
+	const [formData, setFormData] = useState({ name: '', phone: '', email: '', subject: '', message: '' });
+	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+	const [errorMessage, setErrorMessage] = useState('');
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setStatus('loading');
+		setErrorMessage('');
+
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
+			});
+
+			const data = await res.json();
+
+			if (res.ok) {
+				setStatus('success');
+				setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
+			} else {
+				setStatus('error');
+				setErrorMessage(data.message || 'Something went wrong');
+			}
+		} catch (error) {
+			setStatus('error');
+			setErrorMessage('Failed to send message. Please try again.');
+		}
+	};
+
 	return (
 		<>
 
@@ -11,29 +47,39 @@ export default function Contact2() {
 							<div className="position-relative">
 								<div className="position-relative z-2">
 									<h3 className="text-primary-2 mb-3">Let’s connect</h3>
-									<form action="#">
+									<form onSubmit={handleSubmit}>
 										<div className="row g-3">
 											<div className="col-md-6 ">
-												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="name" name="name" placeholder="Your name" aria-label="username" />
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="name" name="name" placeholder="Your name" aria-label="username" required value={formData.name} onChange={handleChange} />
 											</div>
 											<div className="col-md-6">
-												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="phone" name="phone" placeholder="Phone" aria-label="phone" />
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="phone" name="phone" placeholder="Phone" aria-label="phone" value={formData.phone} onChange={handleChange} />
 											</div>
 											<div className="col-md-6">
-												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="email" name="email" placeholder="Emaill" aria-label="email" />
+												<input type="email" className="form-control bg-3 border border-1 rounded-3" id="email" name="email" placeholder="Email" aria-label="email" required value={formData.email} onChange={handleChange} />
 											</div>
 											<div className="col-md-6">
-												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="subject" name="subject" placeholder="Subject" aria-label="subject" />
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="subject" name="subject" placeholder="Subject" aria-label="subject" value={formData.subject} onChange={handleChange} />
 											</div>
 											<div className="col-12">
-												<textarea className="form-control bg-3 border border-1 rounded-3" id="message" name="message" placeholder="Message" aria-label="With textarea" defaultValue={""} />
+												<textarea className="form-control bg-3 border border-1 rounded-3" id="message" name="message" placeholder="Message" aria-label="With textarea" required value={formData.message} onChange={handleChange} />
 											</div>
 											<div className="col-12">
-												<button type="submit" className="btn btn-primary-2 rounded-2">
-													Send Message
+												<button type="submit" className="btn btn-primary-2 rounded-2" disabled={status === 'loading'}>
+													{status === 'loading' ? 'Sending...' : 'Send Message'}
 													<i className="ri-arrow-right-up-line" />
 												</button>
 											</div>
+											{status === 'success' && (
+												<div className="col-12 mt-3 text-success">
+													Message sent successfully!
+												</div>
+											)}
+											{status === 'error' && (
+												<div className="col-12 mt-3 text-danger">
+													{errorMessage}
+												</div>
+											)}
 										</div>
 									</form>
 								</div>
