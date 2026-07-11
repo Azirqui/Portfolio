@@ -21,7 +21,7 @@ export default function Experience2() {
 									<span className="text-300"> years of </span>
 									passion
 									<span className="text-300">
-										for <br />
+										&nbsp;for <br />
 										programming techniques
 									</span>
 								</h3>

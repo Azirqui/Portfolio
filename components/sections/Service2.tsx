@@ -18,9 +18,9 @@ export default function Service2() {
 										<span className="text-linear-4 d-flex align-items-center"> Cooperation </span>
 									</div>
 									<h3>
-										Designing solutions
+										Designing solutions 
 										<span className="text-300">
-											customized<br />
+											&nbsp;customized<br />
 											to meet your requirements
 										</span>
 									</h3>
