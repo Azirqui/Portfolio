@@ -32,6 +32,15 @@ export default function Experience2() {
 												<div className="d-flex align-items-center gap-2">
 													{/* <img src="assets/imgs/home-page-2/experience/google.svg" alt="zelio" /> */}
 													<div className="d-flex flex-column ms-2">
+														<h5 className="mb-1">Softmatic Solutions</h5>
+														<span className="text-300">July 2026 - Present</span>
+													</div>
+												</div>
+											</Link>
+											<Link href="#" className="technology border border-1 rounded-3 p-3">
+												<div className="d-flex align-items-center gap-2">
+													{/* <img src="assets/imgs/home-page-2/experience/google.svg" alt="zelio" /> */}
+													<div className="d-flex flex-column ms-2">
 														<h5 className="mb-1">10Pearls</h5>
 														<span className="text-300">Dec 2025 - Feb 2026</span>
 													</div>
